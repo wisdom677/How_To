@@ -34,6 +34,10 @@ body > * {
   grid-column: 2 / -2;
 }
 
+.mokuji {
+  margin-top: 20%;
+  margin-bottom: 20%;
+}
 
 h1 {
   font-size: 100px;
