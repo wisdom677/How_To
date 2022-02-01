@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="description" content="layout">
   <meta name="viewport" content="width=device-width">
-  <title>レイアウト</title>
+  <title>テンプレート</title>
   <link rel="stylesheet" media="all" href="css/style.css">
   <link href="code-prettify/prettify.css" type="text/css" rel="stylesheet">
   <script type="text/javascript" src="code-prettify/prettify.js"></script>
@@ -108,6 +108,14 @@
 				</div>
 			</section>
 
+  ⑧ソースコードを埋め込みたい時
+
+    <pre class="prettyprint linenums">
+      <code>
+        ソースコード
+      </code>
+    </pre>
+
 もっと詳しい説明：
 ・全体を大きくheader、content、footerに分かれておりcontentはさらにsectionごとに区切られている。
 ・サイドナビゲーションのリンク先をsectionのidに指定することでページ内遷移をしている。
@@ -165,7 +173,7 @@
         <div class="inner">
           <div class="article">
             <h2>◎スライドの周囲、図の周囲には余白を取る</h2>
-            <img src="https://tsutawarudesign.com/miyasuku/miyasuku-10.svg" width="370" height="224" >
+            <img src="https://tsutawarudesign.com/miyasuku/miyasuku-10.svg" width="370" height="224">
             <p>左上のスライドの例を見てください。テキストと図の高さが揃っているのはよいのですが、赤い三角をつけた部分にスペースが少なすぎます。これでは、とても窮屈で、非常に読みにくいスライドになります。では、余白はどのように取ればいいのか、なぜ余白が重要なのかについて説明します。</p>
             <h4>余白の取り方の基本</h4>
             <ul>
@@ -219,13 +227,6 @@
             <img src="images/soroeru.png" width="370" height="224" alt="">
             <p>上のようにサイト全体を格子上に捉えることでそれぞれの要素を配置しやすくなります。それに加えて図の大きさや文章の長さなどを揃えることも印象をかなり良くします。</p>
             <p>しかし、新聞記事のように見出しや小さな図が入る場合は、最初のようにグリッドを応用する必要があります。</p>
-            <pre class="prettyprint linenums">
-              <code>
-                body{
-                  grid:
-                }
-              </code>
-            </pre>
           </div>
           <div class="article">
             <img src="画像urlを記入" width="370" height="224" alt="">
