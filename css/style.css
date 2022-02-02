@@ -81,7 +81,7 @@ section{
 	text-align: center;
 }
 
-p{
+p, li, a{
 	text-align: left;
 }
 
