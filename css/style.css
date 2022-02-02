@@ -85,6 +85,13 @@ p{
 	text-align: left;
 }
 
+pre{
+	width: 60%;
+	height: auto;
+	margin: auto;
+	text-align: left;
+}
+
 section h2{
 	width: 60%;
 	margin: 70px auto;
