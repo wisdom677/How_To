@@ -212,6 +212,17 @@ section h3{
 		text-align: left;
 	}
 
+	.col7{
+		text-align: center;
+	}
+	.col7 li{
+		display: inline-block;
+		width: 35%;
+		padding: 0 3%;
+		vertical-align: top;
+		text-align: center;
+	}
+
 
 
   #footer{
@@ -308,6 +319,7 @@ section h3{
   	transition: .3s;
 	}
 
+	
 	#menuBtn:before{
   	margin-top: -7px;
 	}
