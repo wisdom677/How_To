@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="layout">
+  <meta name="viewport" content="width=device-width">
+  <title>アイデアについて</title>
+  <link rel="stylesheet" media="all" href="css/style.css">
+  <link href="code-prettify/prettify.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="code-prettify/prettify.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+
+<!--
+	gitの使い方：
+  https://gitforwindows.org から install
+  (Windowsの人は)git CMD を開く
+	git config --global user.name "ユーザーネーム"
+	git config --global user.email メールアドレス
+	//上の二つはしてない人だけで良いです。
+  空のフォルダーに移動する。
+  git init
+	git clone https://github.com/Siro3150/How_To.git
+	git branch ブランチ名
+	git checkout ブランチ名
+	編集作業
+	git add .
+	git commit -m 'コメントを書く'
+	git push -u origin ブランチ名
+  not upstream が出た時
+  git pull origin
+  git push -u origin ブランチ名
+
+  origin = https://github.com/Siro3150/How_To.git の意味なので２回めからは,
+  省略してoriginと書くことができると思いますが、もしエラーが出た場合は,
+  ちゃんとurlを書いてください。
+
+
+	２回め以降の編集作業
+	git pull https://github.com/Siro3150/How_To.git
+		編集作業
+	git add .
+	git commit -m 'コメントを書く'
+	git push -u origin ブランチ名
+
+	テンプレートの説明：
+	(新しくページを作る時)
+	①ファイル名は小文字英語でメインコンテンツ名.htmlとすること。(seo.html) ファイル位置はとりあえずseo.htmlと同じ階層で。
+	②<meta content="">にファイル名と同じようにメインコンテンツ名を記述する。(例：seo)
+	③良い感じのを<title></title>に書く(例：SEO)
+
+	(コンテンツを追加する時)
+	④サイドバーのリストにコンテンツの名前とhrefにsection番号を新たに加える。(例：sec09)
+	⑤<div id="content"></div>内に以下のプログラムを加えてコンテンを記述。<section id="">に先ほどのリストに書いたsection番号を書く。
+
+			<section id="secXX">
+				<header>
+					<h2><span>コンテンツ名</span></h2>
+				</header>
+				<div class="innerS">
+					<p>導入や思想、そのコンテンツがどのように役に立つかなど(できれば書いて欲しい)</p>
+					<h3>サブタイトル(なくても良い)</h3>
+					<p>説明</p>
+				</div>
+			</section>
+
+	⑥画像を用いて文章を説明したい時、⑤と同様に以下のプログラムを加える。(注：画像リンクはなるべくimagaesフォルダーにまとめること)
+
+
+			<section id="secXX">
+				<header>
+					<h2><span>コンテンツ名</span></h2>
+				</header>
+					<div class="inner">
+						<div class="article">
+							<img src="画像urlを記入" width="370" height="224" alt="">
+							<p>画像の右に表示される</p>
+							<p>画像右下あたりに表示される</p>
+						</div>
+						<div class="article">
+							<img src="画像urlを記入" width="370" height="224" alt="">
+							<p>＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃</p>
+						</div>
+					</div>
+			</section>
+
+
+	⑦画像を横並びに置いてその下に文章を書く場合、⑤と同様に以下のプログラムをコピペする。
+
+
+			<section id="secXX">
+				<header>
+					<h2><span>コンテンツ名</span></h2>
+				</header>
+				<div class="inner">
+					<ul class="col4">
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>画像の真下に表示される文章です</p>
+						</li>
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>たくさんは書けません</p>
+						</li>
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>リストは必要に応じて加えたり減らしたりしてください。</p>
+						</li>
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>＃＃＃＃＃＃＃＃＃＃＃＃</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+  ⑧ソースコードを埋め込みたい時
+
+    <pre class="prettyprint linenums">
+      <code>
+        ソースコード
+      </code>
+    </pre>
+
+もっと詳しい説明：
+・全体を大きくheader、content、footerに分かれておりcontentはさらにsectionごとに区切られている。
+・サイドナビゲーションのリンク先をsectionのidに指定することでページ内遷移をしている。
+・<div class="inner">と<div class="innerS">の違いは、innerの方が画像を含めた記事を載せるため横幅が広い。innerSの方は文章のみの説明となるので横幅が狭め
+・cssとjavascriptファイルはあまり気にしなくて良い。
+・後は自由に使いたいとこをコピペしたり、無駄なとこを消したりして使ってください。
+ -->
+
+<body id="top" onload="prettyPrint()">
+  <div id="wrapper">
+
+    <div id="sidebar">
+      <div id="sidebarWrap">
+
+        <nav id="mainnav">
+          <p id="menuWrap"><a id="menu"><span id="menuBtn"></span></a></p>
+          <div class="panel">
+            <ul>
+              <li><a href="#top">top</a></li>
+              <li><a href="#sec01">リンク</a></li>
+              <li><a href="#sec02">構造化データ</a></li>
+              <li><a href="#sec03">リッチスニペット</a></li>
+              <li><a href="#sec04">コンテンツの属性</a></li>
+              <li><a href="#sec05">ナレッジグラフ</a></li>
+              <li><a href="#sec06">サンプル</a></li>
+            </ul>
+            <ul id="sns">
+              <li><a href="https://twitter.com/m_seminar" target="_blank"><img src="images/iconTw.png" width="20" height="20" alt="twitter"></a></li>
+              <li><a href="https://t.co/PtGWqwsb5g" target="_blank"><img src="images/iconInsta.png" width="20" height="20" alt="Instagram"></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+
+    <div id="content">
+
+      <section>
+        <header>
+          <h2><span>レイアウト</span></h2>
+        </header>
+        <div class="innerS">
+          <p>SEOとはsearch engine optimizerの略であり、その意味は簡単に言うとwebサイトをコンピュータにも理解できるようにするということです。一見これはなぜ必要なのか分からない人も多いと思います。しかし本章を見た後、きっとその考え方も変わるはずです。結論を言うと私たちの作ったコンテンツが正しく世界中の人々に感動を与えるために、webページは、一度クローラーと検索エンジンというプログラムを介してから検索結果に現れるということです。もしこれらのプログラムを介さなければ、せっかく作ったwebサイトは検索結果に現れず、ネットを彷徨う悲しき遺物となることでしょう。本性はそうならないための対策をメインに取り扱います。</p>
+        </div>
+      </section>
+
+      <section id="sec01">
+        <header>
+          <h2><span>余白をとる</span></h2>
+        </header>
+
+        <div class="inner">
+          <div class="article">
+            <h2>◎スライドの周囲、図の周囲には余白を取る</h2>
+            <img src="https://tsutawarudesign.com/miyasuku/miyasuku-10.svg" width="370" height="224">
+            <p>左上のスライドの例を見てください。テキストと図の高さが揃っているのはよいのですが、赤い三角をつけた部分にスペースが少なすぎます。これでは、とても窮屈で、非常に読みにくいスライドになります。では、余白はどのように取ればいいのか、なぜ余白が重要なのかについて説明します。</p>
+            <h4>余白の取り方の基本</h4>
+            <ul>
+              <li>・むやみに文字を大きくするのではなく、ゆとりをもって配置できるような文字サイズにする。</li>
+              <li>・「文字とスライドの端」、「文字と文字」、「文字と図」の間にはしっかりとスペースを空ける。</li>
+            </ul>
+            <h4>余白の重要性</h4>
+            <p>プロジェクターの具合によっては、スライドの端がスクリーンからはみ出てしまうこともあるので、そういった意味でも、スライドでは周囲にスペースを作ることは重要です。また、スペースが美しければ、スライドも美しくなります（左上のスライド参照）。スライドの場合は、最低でも本文の文字の１文字分の余白（右下の図で薄い赤色で示したくらいの余白）を設けるようにしましょう。２文字分くらいの余白をとると、かなりゆったりした資料になり、確実に見やすくなります。研究発表では必要のないことかもしれませんが、余白が多いほどオシャレな印象になりやすいです。</p>
+            <p style="color: red">*わざとデザインの面で余白を取らない場合もありますので、必ずしも余白が必要になるわけではありません。</p>
+
+            <pre class="prettyprint linenums">
+              <code>p{
+                font-size: 16px;
+                color: #333;
+              }</code>
+            </pre>
+
+          </div>
+
+          <h2>◎余裕をもって配置する</h2>
+          <p>
+          しばしば枠の中に単語や文章を入れることがあります。このとき注意したいのは、文字と枠の間隔です。文字が枠のギリギリになってしまうと、枠の近くの文字が非常に読みにくくなります。
+          文字は線の要素で、枠線も線の要素であるため、互いに接近したときに干渉し合ってしあうためです。「ギリギリだけど収まったからいい」なんてことはありません。枠の中に、余裕をもって文章を配置しましょう。
+          では、いくつかの例を挙げて説明します。
+          </p>
+
+          <div class="article">
+            <h3>文章を枠内に入れる場合</h3>
+            <img src="https://tsutawarudesign.com/miyasuku/miyasuku-11.svg" width="370" height="200" alt="">
+            <p>文章を枠内に入れる場合は、上下に１文字分ぐらい余白を確保するといいでしょう。</p>
+          </div>
+          <div class="article">
+            <h3>語句を枠内に入れる場合</h3>
+            <img src="https://tsutawarudesign.com/miyasuku/miyasuku-12.svg" width="370" height="224">
+            <p>語句を枠内に入れる場合は、枠は大きめにとりましょう。ちょっとしたことですが、こういった積み重ねが全体の読みやすさを大きく変えます。</p>
+          </div>
+          <div class="article">
+            <h3>具体的な例</h3>
+            <img src="https://tsutawarudesign.com/miyasuku/miyasuku-13.svg" width="370" height="224">
+            <p>枠の中の文字が窮屈すぎると読みにくい上に、印象もよくありません。どうしても枠を大きくできないとか、文字数を減らすことができない場合ならば、少々文字を小さくした方が読みやすいこともあります。*ちなみに、分量（行数）が少ないほど、枠内の余白は少なくてもよいです（スライド全体には１文字分の余白が必要だが、タイトル部分やフローチャートの部分は、0.5〜0.7文字分でも構わない、という意味です）。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="sec02">
+        <header>
+          <h2><span>②揃える</span></h2>
+        </header>
+        <div class="inner">
+          <div class="article">
+            <img src="images/soroeru.png" width="370" height="224" alt="">
+            <p>上のようにサイト全体を格子上に捉えることでそれぞれの要素を配置しやすくなります。それに加えて図の大きさや文章の長さなどを揃えることも印象をかなり良くします。</p>
+            <p>しかし、新聞記事のように見出しや小さな図が入る場合は、最初のようにグリッドを応用する必要があります。</p>
+          </div>
+          <div class="article">
+            <img src="画像urlを記入" width="370" height="224" alt="">
+            <p>＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃</p>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="sec03">
+        <header>
+          <h2><span>コンテンツ名</span></h2>
+        </header>
+        <div class="inner">
+          <div class="article">
+            <img src="画像urlを記入" width="370" height="224" alt="">
+            <p>画像の右に表示される</p>
+            <p>画像右下あたりに表示される</p>
+          </div>
+          <div class="article">
+            <img src="画像urlを記入" width="370" height="224" alt="">
+            <p>＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃</p>
+          </div>
+        </div>
+      </section>
+
+
+
+    </div>
+  </div>
+
+</body>
+</html>
