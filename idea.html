@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="layout">
+  <meta name="viewport" content="width=device-width">
+  <title>アイデア</title>
+  <link rel="stylesheet" media="all" href="css/style.css">
+  <link href="code-prettify/prettify.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="code-prettify/prettify.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+
+<!--
+	gitの使い方：
+  https://gitforwindows.org から install
+  (Windowsの人は)git CMD を開く
+	git config --global user.name "ユーザーネーム"
+	git config --global user.email メールアドレス
+	//上の二つはしてない人だけで良いです。
+  空のフォルダーに移動する。
+  git init
+	git clone https://github.com/Siro3150/How_To.git
+	git branch ブランチ名
+	git checkout ブランチ名
+	編集作業
+	git add .
+	git commit -m 'コメントを書く'
+	git push -u origin ブランチ名
+  not upstream が出た時
+  git pull origin
+  git push -u origin ブランチ名
+
+  origin = https://github.com/Siro3150/How_To.git の意味なので２回めからは,
+  省略してoriginと書くことができると思いますが、もしエラーが出た場合は,
+  ちゃんとurlを書いてください。
+
+
+	２回め以降の編集作業
+	git pull https://github.com/Siro3150/How_To.git
+		編集作業
+	git add .
+	git commit -m 'コメントを書く'
+	git push -u origin ブランチ名
+
+	テンプレートの説明：
+	(新しくページを作る時)
+	①ファイル名は小文字英語でメインコンテンツ名.htmlとすること。(seo.html) ファイル位置はとりあえずseo.htmlと同じ階層で。
+	②<meta content="">にファイル名と同じようにメインコンテンツ名を記述する。(例：seo)
+	③良い感じのを<title></title>に書く(例：SEO)
+
+	(コンテンツを追加する時)
+	④サイドバーのリストにコンテンツの名前とhrefにsection番号を新たに加える。(例：sec09)
+	⑤<div id="content"></div>内に以下のプログラムを加えてコンテンを記述。<section id="">に先ほどのリストに書いたsection番号を書く。
+
+			<section id="secXX">
+				<header>
+					<h2><span>コンテンツ名</span></h2>
+				</header>
+				<div class="innerS">
+					<p>導入や思想、そのコンテンツがどのように役に立つかなど(できれば書いて欲しい)</p>
+					<h3>サブタイトル(なくても良い)</h3>
+					<p>説明</p>
+				</div>
+			</section>
+
+	⑥画像を用いて文章を説明したい時、⑤と同様に以下のプログラムを加える。(注：画像リンクはなるべくimagaesフォルダーにまとめること)
+
+
+			<section id="secXX">
+				<header>
+					<h2><span>コンテンツ名</span></h2>
+				</header>
+					<div class="inner">
+						<div class="article">
+							<img src="画像urlを記入" width="370" height="224" alt="">
+							<p>画像の右に表示される</p>
+							<p>画像右下あたりに表示される</p>
+						</div>
+						<div class="article">
+							<img src="画像urlを記入" width="370" height="224" alt="">
+							<p>＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃</p>
+						</div>
+					</div>
+			</section>
+
+
+	⑦画像を横並びに置いてその下に文章を書く場合、⑤と同様に以下のプログラムをコピペする。
+
+
+			<section id="secXX">
+				<header>
+					<h2><span>コンテンツ名</span></h2>
+				</header>
+				<div class="inner">
+					<ul class="col4">
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>画像の真下に表示される文章です</p>
+						</li>
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>たくさんは書けません</p>
+						</li>
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>リストは必要に応じて加えたり減らしたりしてください。</p>
+						</li>
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>＃＃＃＃＃＃＃＃＃＃＃＃</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+  ⑧ソースコードを埋め込みたい時
+
+    <pre class="prettyprint linenums">
+      <code>
+        ソースコード
+      </code>
+    </pre>
+
+もっと詳しい説明：
+・全体を大きくheader、content、footerに分かれておりcontentはさらにsectionごとに区切られている。
+・サイドナビゲーションのリンク先をsectionのidに指定することでページ内遷移をしている。
+・<div class="inner">と<div class="innerS">の違いは、innerの方が画像を含めた記事を載せるため横幅が広い。innerSの方は文章のみの説明となるので横幅が狭め
+・cssとjavascriptファイルはあまり気にしなくて良い。
+・後は自由に使いたいとこをコピペしたり、無駄なとこを消したりして使ってください。
+ -->
+
+<body id="top" onload="prettyPrint()">
+  <div id="wrapper">
+
+    <div id="sidebar">
+      <div id="sidebarWrap">
+
+        <nav id="mainnav">
+          <p id="menuWrap"><a id="menu"><span id="menuBtn"></span></a></p>
+          <div class="panel">
+            <ul>
+              <li><a href="#top">top</a></li>
+              <li><a href="#sec01">アイデアの必要性</a></li>
+              <li><a href="#sec02">幅を意識した発想法</a></li>
+              <li><a href="#sec03">全体を意識した発想法</a></li>
+              <li><a href="#sec04">まとめ</a></li>
+              <li><a href="#sec05">ナレッジグラフ</a></li>
+              <li><a href="#sec06">サンプル</a></li>
+            </ul>
+            <ul id="sns">
+              <li><a href="https://twitter.com/m_seminar" target="_blank"><img src="images/iconTw.png" width="20" height="20" alt="twitter"></a></li>
+              <li><a href="https://t.co/PtGWqwsb5g" target="_blank"><img src="images/iconInsta.png" width="20" height="20" alt="Instagram"></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+
+    <div id="content">
+
+      <section>
+        <header>
+          <h2><span>アイデア</span></h2>
+        </header>
+        <div class="innerS">
+          <p>
+            <!-- これまでデザインの知識やWebサイトをいかにしてコンピュータに理解してもらうかなどを学んできた所ですが、
+            それらを学んだ皆さんは、その知識を活用してこれから自らのWebサイトを作ろうと思っていると思います。
+            明確に作りたいものがある人もいればそうでない人もいると思います。<br> -->
+            このページの目的は、Webサイト作りにおける「アイデア」の必要性を知ってもらい、
+            自らがアイデアを考案する際のヒントといくつかの例を示すことです。
+          </p>
+          <p>
+            ここでの注意点は、ここで紹介するのはヒントと例であって、皆さんが実際に自分の頭を動かさないと得るものは
+            少なくなるということです。こういった考え方があることを知り、それに対して批判的に考え、自らでさらに調べ、
+            他の人に自分の考えを説明できるようにしていただきたいと思います。
+          </p>
+        </div>
+      </section>
+
+      <section id="sec01">
+        <header>
+          <h2><span>「アイデア」の必要性</span></h2>
+        </header>
+        <div class="innerS">
+          <h3>アイデアとは</h3>
+          <p>
+            アイデアとは、物事や計画にあたっての新しい意見や思いつきなどを指す言葉ですが、ここでは「Webサイトの
+            内容を考える際の材料」として定義します。実際に皆さんがWebサイトを作る作業を分解していけば、一つ一つは
+            「目的」や「ギミック」、「内容」など、言葉は色々ですがWebサイトを構成するための材料が必要です。
+          </p>
+          <h3>アイデア発想法を知る必要性</h3>
+          <p>
+            アイデアの発想法には、古くから様々なものが考案されてきました。それらは非常に優秀なものが多く、
+            それを用いて多くのアイデアが生み出されてきました。しかし、今日ではそれらを与えられたものとして
+            利用しているだけの人が多く存在します。<br>
+            ここからいくつかの発想法を紹介します。これらは独立したものではなく、それぞれに関連があり、
+            同時に使うことができるものや、ある発想法の一部を抽出したものもあります。したがって、これらの発想法も
+            批判的に受け止め、なぜそれらが生み出されたのか、自分はどのようなアイデアを発想したくて
+            そのための方法を用いるかなどを考えながら、自らの考え方の栄養にしてください。
+          </p>
+        </div>
+      </section>
+
+      <section id="sec02">
+        <header>
+          <h2><span>幅を重視した発想法</span></h2>
+        </header>
+        <div class="innerS">
+          <h3>ルーレット</h3>
+          <p>
+            そもそもの課題やその切り口を考える方法です。課題や疑問を見つけるとき、私たちは5W1Hを用いて疑問文を作り、
+            考えることができます。それを用いて課題を見つけることができます。また、課題を見つけるとき、重要になる
+            キーワードというものは少なからずあります。例えば未来、過去、海外、国内、自分、他人、目的、手段などです。
+            この疑問詞とキーワードというものに加え、抽象的な動詞を用いて文を作ります。
+            <img src="images/roulette.jpg" alt="">
+            このようにしてルーレットのようなものを作り、様々な組み合わせの文を作ります。これは課題を考えるときの
+            文の構造を利用した発想であるといえます。
+          </p>
+          <h3>ブレインストーミング</h3>
+          <p>
+            これはもっとも有名な発想法の一つです。初めに評価を後回しにしてアイデアの発散を行い、ただただ量を重視して
+            アイデアを出していきます。次に列挙したアイデアを整理して収束させていきます。その時によく使われるのがKJ法です。
+            アイデア同士の関係などを見てグループ化や階層化を行い、全体の構造を見ていきます。メリットはあらゆる角度からの
+            意見が出やすいことであり、デメリットは出た意見は断片的で網羅的であるとは言えない場合が多いことです。
+          </p>
+          <img src="images/bs.jpg" alt="">
+        </div>
+      </section>
+
+
+      <section id="sec03">
+        <header>
+          <h2><span>全体を意識した発想法</span></h2>
+        </header>
+        <div class="innerS">
+          <p>ここでは、全体の構造を意識し、どういった枠組みでアイデアを発想していくかという部分に着目します。
+            仮説を用いた思考と、フレームワークを用いた思考です。
+          </p>
+          <h3>仮説思考</h3>
+          <p>
+            時間の制約がある場合や、既に目的が明確である場合に有効な方法です。問いに対する答えを今ある情報で仮に設定し、
+            その仮説を検証しながら質を高めていきます。先に雑多な情報を集めるのではなく、仮の答えを先に提示することで
+            それに関わることについて考察すればよく、効率的に作業を進めることができます。メリットはまさに効率的で、
+            結論を意識するために作業の全体を意識することができるところです。デメリットは、仮説を正解であると思い込む
+            可能性があることと、発想の幅に制約が出てきてしまうことです。
+          </p>
+          <img src="images/hypo.jpg" alt="">
+          <h3>フレームワーク思考</h3>
+          <p>
+            フレームワークとは、問題解決を行うための思考の枠組みです。これまでに様々なフレームワークが考案され、
+            その型にはめてそれぞれの項目を考えることで抜けがないプロジェクトに近づけることができます。
+            以下のような例があります。
+          </p>
+          <ul class="col4">
+            <li>
+              <p class="img"><img src="images/fourp.jpg" width="168" height="168" alt=""></p>
+              <p>４P分析</p>
+            </li>
+            <li>
+              <p class="img"><img src="images/mission.jpg" width="168" height="168" alt=""></p>
+              <p>ミッション・ビジョン・バリュー</p>
+            </li>
+            <li>
+              <p class="img"><img src="images/logic.jpg" width="168" height="168" alt=""></p>
+              <p>ロジック・ツリー</p>
+            </li>
+          </ul>
+          <p>
+            このようなフレームワークは、実際に成功した思考の枠組みであり、特にビジネスなどでは共通認識がある枠組みでも
+            あります。したがってメリットとして、簡単にきっちりとした思考をすることができ、複数人で作業を進める時に
+            認識のズレをなくすことができるという点があります。逆にデメリットは、ありきたりな枠組みになるということです。
+            枠組みレベルから本当に新しいものを作るのには適していません。
+          </p>
+        </div>
+      </section>
+
+      <section id="sec04">
+        <header>
+          <h2><span>まとめ</span></h2>
+        </header>
+        <div class="innerS">
+          <h3></h3>
+          <p>
+            このようにしていくつかの例を挙げて発想法をみてきました。
+            あとは頑張ってください。（急に投げ出していくスタイル）
+          </p>
+        </div>
+      </section>
+
+
+    </div>
+  </div>
+
+</body>
+</html>
