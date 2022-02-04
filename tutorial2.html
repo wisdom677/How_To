@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="layout">
+  <meta name="viewport" content="width=device-width">
+  <title>チュートリアル２</title>
+  <link rel="stylesheet" media="all" href="css/style.css">
+  <link href="code-prettify/prettify.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="code-prettify/prettify.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+
+<body id="top" onload="prettyPrint()">
+  <div id="wrapper">
+
+    <div id="sidebar">
+      <div id="sidebarWrap">
+
+        <nav id="mainnav">
+          <p id="menuWrap"><a id="menu"><span id="menuBtn"></span></a></p>
+          <div class="panel">
+            <ul>
+              <li><a href="#top">top</a></li>
+              <li><a href="#sec01">基本的なタグ説明</a></li>
+              <li><a href="#sec02">構造化データ</a></li>
+              <li><a href="#sec03">リッチスニペット</a></li>
+            </ul>
+            <ul id="sns">
+              <li><a href="https://twitter.com/m_seminar" target="_blank"><img src="images/iconTw.png" width="20" height="20" alt="twitter"></a></li>
+              <li><a href="https://t.co/PtGWqwsb5g" target="_blank"><img src="images/iconInsta.png" width="20" height="20" alt="Instagram"></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+
+
+    <div id="content">
+
+      <section id="sec01">
+        <header>
+          <h2><span>基本的なタグ説明</span></h2>
+        </header>
+
+        <div class="innerS">
+            <img src="images/z2.png">
+            <p>htmlはWebページを作るための言語の一つですが、マークアップ言語であるhtmlは、その名の通りマーク＝『タグ』をつけることで、文章の構造を表現します。ebページを右クリックして「ソースの表示」を選ぶと「<」と「>」で囲まれた部分が『タグ』です。タグの記述方法にはルールがありますが、いくつか覚えれば簡単にWebページが作成できます。</p>
+
+            <h3>10個の覚えておきたいタグ</h3>
+
+            <h4>1.h1〜h6タグ</h4>
+            <p>見出しを作るときに使用するタグです。h1が一番大きな文字であり、サイトのメインとなる見出しに使われます。h2,h3…h6と数字が大きくなるにつれて小さな文字の見出しとなります。</p>
+            <pre class="prettyprint linenums">
+&lt;h1&gt;メインタイトルなど&lt;/h1&gt;
+&lt;h2&gt;サブタイトルなど&lt;/h2&gt;
+&lt;h3&gt;さらに小さいタイトル&lt;/h3&gt;</pre>
+
+            <br>
+            <h4>2.aタグ</h4>
+            <p>他のページへのリンクを貼ったりする際に使用します。</p>
+            <pre class="prettyprint linenums">
+&lt;a href=&quot;遷移先のurlなど&quot;&gt;ここの文字をクリックすると遷移します。&lt;/a&gt;</pre>
+
+            <br>
+            <h4>3.pタグ</h4>
+            <p>段落を表すためのタグです。タグでタグで囲むと、その文章が一つの段落となって、段落ごとに文章が区切られるための改行を伴います。段落の途中で改行させたい場合はbrタグを使用しましょう。pタグはブッロック要素です。</p>
+            <pre class="prettyprint linenums">
+&lt;p&gt;
+  ここには文章を書きます。&lt;br&gt;
+  brタグで文章は改行されます。
+&lt;/p&gt;</pre>
+
+            <br>
+            <h4>4.imgタグ</h4>
+            <p>画像を貼り付ける際に使用するタグです。imgタグはインライン要素です。</p>
+            <pre class="prettyprint linenums">
+&lt;img src=&quot;画像url&quot; alt=&quot;画像が表示されない時の言葉&quot; width=&quot;横幅&quot; height=&quot;高さ&quot;&gt;</pre>
+
+            <br>
+            <h4>5.tableタグ</h4>
+            <p>テーブル（表）を作成するときに使用するタグです。<p/>
+            <h6>&lt;table&gt;</h6><br>
+            <p>表の開始を示すタグです。中には&lt;tr&gt;・&lt;td&gt;・&lt;th&gt;が入ります。何も入力していない場合では枠線は表示されず、border属性に"1"を指定することで表示されるようになります。</p>
+            <h6>&lt;tr&gt;</h6>
+            <p>table roeの略。テーブルの行に使用します。このタグを使用した分だけ行が追加されます。</p>
+            <h6>&lt;td&gt;</h6>
+            <p>table dateの略でテーブルのセルに使用します。サンプルの中の内容の部分と言えます。</p>
+            <h6>&lt;th&gt;</h6>
+            <p>table headerの略。テーブルの見出しのセルに使用します。</p>
+            <pre class="prettyprint linenums">
+&lt;table border="1"&gt;
+&lt;tr&gt;
+&lt;th&gt;見出し&lt;/th&gt;
+&lt;th&gt;見出し&lt;/th&gt;
+&lt;th&gt;見出し&lt;/th&gt;
+&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;&gt;</pre>
+
+              <br>
+              <h4>6.brタグ（改行）</h4>
+              <p>文章の途中で改行したいときに使用します。段落内で強制的に改行させる際に使うのですが、連続で使用して空白行を作成するために使わないようにしましょう。</p>
+
+              <br>
+              <h4>7.ul.ol.liタグ</h4>
+              <p>リストを作成するときに使うタグです。</p>
+              <h6>&lt;ul&gt;</h6>
+              <p>unordered listの略。順番のないリストを作る際に使います。（はじめに付く記号の種類はtype属性で指定することができます。）</p>
+              <h6>&lt;ol&gt;</h6>
+              <p>ordered listの略。1,2,3〜やa,b,cなど順番のあるリストを作成する際に使います。はじめに付く記号や数字の種類はtype属性で指定することができます。</p>
+              <h6>&lt;li&gt;</h6>
+              <p>list itemの略。&lt;ol&gt;〇〇&lt;/li&gt;や&lt;ul&gt;〇〇&lt;/ul&gt;の中にあたる〇〇の部分に記述します。リストの各項目を作成するときに使います。</p>
+
+              <br>
+              <h4>8.scriptタグ</h4>
+              <p>リストを作成するときに使うタグです。</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</body>
+</html>

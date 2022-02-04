@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="ja">
-
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="layout">
   <meta name="viewport" content="width=device-width">
-  <title>テンプレート</title>
+  <title>デザイン</title>
   <link rel="stylesheet" media="all" href="css/style.css">
   <link href="code-prettify/prettify.css" type="text/css" rel="stylesheet">
   <script type="text/javascript" src="code-prettify/prettify.js"></script>
@@ -30,10 +29,8 @@
               <li><a href="#sec04">文字の大きさ</a></li>
             </ul>
             <ul id="sns">
-              <li><a href="#" target="_blank"><img src="images/iconFb.png" width="20" height="20" alt="FB"></a></li>
-              <li><a href="#" target="_blank"><img src="images/iconTw.png" width="20" height="20" alt="twitter"></a></li>
-              <li><a href="#" target="_blank"><img src="images/iconInsta.png" width="20" height="20" alt="Instagram"></a></li>
-              <li><a href="#" target="_blank"><img src="images/iconYouTube.png" width="20" height="20" alt="You Tube"></a></li>
+              <li><a href="https://twitter.com/m_seminar" target="_blank"><img src="images/iconTw.png" width="20" height="20" alt="twitter"></a></li>
+              <li><a href="https://t.co/PtGWqwsb5g" target="_blank"><img src="images/iconInsta.png" width="20" height="20" alt="Instagram"></a></li>
             </ul>
           </div>
         </nav>
@@ -60,21 +57,21 @@
           <p>
             背景と色の組み合わせを意識することで、見やすさに大きな差が生まれます。例えば、青の背景に紫の文字で作られたwebサイトを考えると、見にくいことがはっきりわかります。このように、寒色と寒色や暖色と暖色の組み合わせはwebサイトを見にくくしてしまいます。
           </p>
-        
+
           <p> これらを考慮すると、どのような組み合わせが良いのでしょうか。例えば、強調したい部分は目立つようにするために赤を利用したり、webサイトを作る際に色を使い過ぎず、2色から3色で表現するのもお薦めします。</p><br>
           <h4>では実際に背景と色の組み合わせを考えたものと考えていないものを比較してみましょう。</h4><br>
-        
+
           <h4>
             <組み合わせを考えて作ったもの>
           </h4>
           <img src="https://image.news.livedoor.com/newsimage/stf/2/7/2701a_1223_d930e44b6a21ab28e795b4e6ef94c322.jpg"
             width="370" height="224" alt="">
-        
+
           <h4>
             <組み合わせを考えずに作ったもの>
           </h4>
           <img src="https://good-web-design.com/wp/wp-content/uploads/2020/08/s-303.jpg" width="370" height="224" alt="">
-        
+
           <p>この2つを比べると、文字はできる限り白にして読みやすさを考慮した同志社大学のwebサイトに対して、chupa chupsのwebサイトはインパクトがありますが、色を何色も使っていて見にくいものとなっています。</p>
         </div>
       </section>
@@ -83,107 +80,104 @@
         <header>
           <h2><span>書体</span></h2>
         </header>
-        <div class="inner">
-          <div class="article">
-            <h4>フォントの変更</h4>
-            <p>文字にも文章によって、見やすい字体があります。フォントはそれぞれ多種多様な雰囲気を持っており、それによって同じ言葉でも私たちに与える人物像・印象が大きく変わります。なお、フォントを変更するときには、CSSの [font-family]プロパティを使用します。</p>
-            <pre class="prettyprint linenums">
-              <code>p{
-                    font-family: フォント名;
-                    }
-              </code>
-            </pre>
-            <p>フォント名の部分にはserifやsans-serifなど、使いたいフォントによって書き換えます。</p>
+        <div class="innerS">
+          <h4>フォントの変更</h4>
+          <p>文字にも文章によって、見やすい字体があります。フォントはそれぞれ多種多様な雰囲気を持っており、それによって同じ言葉でも私たちに与える人物像・印象が大きく変わります。なお、フォントを変更するときには、CSSの [font-family]プロパティを使用します。</p>
+          <pre class="prettyprint linenums">
+p{
+  font-family: フォント名;
+}
+          </pre>
+          <p>フォント名の部分にはserifやsans-serifなど、使いたいフォントによって書き換えます。</p>
 
-            <h4>複数のフォントの指定</h4>
-            <p>複数の字体を指定することもできます。（カンマ「,」でつなげる）</p>
-            <pre class="prettyprint linenums">
-              <code>p{
-                    font-family: serif, sans-serif, cursive;
-                    }
-              </code>
-            </pre>
-            <p>指定の順番は「先に書いたもの」が優先されます。この場合だとserifが最優先となります。</p>
+          <h4>複数のフォントの指定</h4>
+          <p>複数の字体を指定することもできます。（カンマ「,」でつなげる）</p>
+          <pre class="prettyprint linenums">
+p{
+  font-family: serif, sans-serif, cursive;
+}
+          </pre>
+          <p>指定の順番は「先に書いたもの」が優先されます。この場合だとserifが最優先となります。</p>
 
-            <h4>よく使われるフォントと特徴</h4>
-            <ul>
-              <li>・serif「serif」は明朝体（セリフ体）。本文で使われることが多い。</li>
-              <li>・sans-serif「sans-serif」はゴシック体（サンセリフ体）。タイトルで使われることが多い。ゴシック体は，太さが均一なので読みやすい。</li>
-              <li>・cursive「cursive」は筆記体によく使用されます。</li>
-              <li>・fantasy「fantasy」はファンタジー。かわいい系の文字であるが、多用するとウザい。</li>
-              <li>・monospace「monospace」は等幅。横幅が一定なので、プログラミングコードなどの表記で使われる。</li>
-            </ul>
+          <h4>よく使われるフォントと特徴</h4>
+          <ul>
+            <li>serif「serif」は明朝体（セリフ体）。本文で使われることが多い。</li>
+            <li>sans-serif「sans-serif」はゴシック体（サンセリフ体）。タイトルで使われることが多い。ゴシック体は，太さが均一なので読みやすい。</li>
+            <li>cursive「cursive」は筆記体によく使用されます。</li>
+            <li>fantasy「fantasy」はファンタジー。かわいい系の文字であるが、多用するとウザい。</li>
+            <li>monospace「monospace」は等幅。横幅が一定なので、プログラミングコードなどの表記で使われる。</li>
+          </ul>
 
-            <h4>企業から見るフォント</h4>
-            <p>上記のフォント以外にもフォントの種類はたくさんあります。その中のいくつかを、企業のロゴを使ってみていこうと思います</p>
-                      <div class="inner">
-                        <div class="article">
-                          <img src="images/domino.png" width="370" height="224" alt="">
-                          <p></p>
-                        </div>
-                        <div class="article">
-                          <img src="images/supreme.png" width="370" height="224" alt="">
-                          <p>Futura 「futura」は円と直線の組み合わせでできています。王道感と今っぽさを両方出すことができるため様々な業界のロゴに使われています。</p>
-                        </div>
-                      </div>
-
-                      <div class="inner">
-                        <div class="article">
-                          <img src="images/muji.png" width="370" height="224" alt="">
-                          <p></p>
-                        </div>
-                        <div class="article">
-                          <img src="images/panasonic.png" width="370" height="224" alt="">
-                          <p>Helvetica「Helvetica」は簡潔で個性が抑えられたフォントであり、汎用性が高く、個性が抑えられているので読みやすいです。</p>
-                        </div>
-                      </div>
-            <p>他にも、Comic Sans MSやArial Blackなど様々あります。また、WindowsやMacなどで使えるフォントが異なる場合があります。</p>
+          <h4>企業から見るフォント</h4>
+          <p>上記のフォント以外にもフォントの種類はたくさんあります。その中のいくつかを、企業のロゴを使ってみていこうと思います</p>
+          <div class="inner">
+            <div class="article">
+              <img src="images/domino.png" width="370" height="224" alt="">
+              <p></p>
+            </div>
+            <div class="article">
+              <img src="images/supreme.png" width="370" height="224" alt="">
+              <p>Futura 「futura」は円と直線の組み合わせでできています。王道感と今っぽさを両方出すことができるため様々な業界のロゴに使われています。</p>
+            </div>
           </div>
+
+          <div class="inner">
+            <div class="article">
+              <img src="images/muji.png" width="370" height="224" alt="">
+              <p></p>
+            </div>
+            <div class="article">
+              <img src="images/panasonic.png" width="370" height="224" alt="">
+              <p>Helvetica「Helvetica」は簡潔で個性が抑えられたフォントであり、汎用性が高く、個性が抑えられているので読みやすいです。</p>
+            </div>
+          </div>
+          <p>他にも、Comic Sans MSやArial Blackなど様々あります。また、WindowsやMacなどで使えるフォントが異なる場合があります。</p>
+
         </div>
       </section>
 
-<section id="sec03">
+      <section id="sec03">
         <header>
           <h2><span>行間</span></h2>
         </header>
         <div class="innerS">
-            
-            <p>ここでは、行間の変更の仕方と行間による見え方について説明します。
-               まず、行間による見え方の違いについて説明したいと思います。</p><br>
-            
-            <h4> <行間を意識せず作った場合> </h4>
-            <img src="https://it-tantou.com/wp-content/uploads/2017/07/word01.png"width="370" height="224" alt="">
-            <h4> <行間を意識して作った場合> </h4>
-            <img src="http://cdn-ak.f.st-hatena.com/images/fotolife/k/kunipi/20160512/20160512220908.png"width="370" height="224" alt="" >
-            
-            <p>上記の2つを比較すると、行間を意識すると文字がごちゃごちゃするのを避けることができ、文字が読みやすくなります。また、行間が考えられた文章だと、目に入ってくる情報量にも差があります。</p>
-              <br> 次に、行間の変更の仕方について説明したいと思います。
-            
-            <p>行間の幅を調整するために、line-heightというプロパティを使う必要があります。</p>
-            
-            <br>記述方法として、今回は基本的なやり方を説明したいと思います。
-            
-            <br><br>その方法は、値と単位を組み合わせてやるやり方です。下記の例のように数値に単位をつけることで行間を調整します。
+          <p>ここでは、行間の変更の仕方と行間による見え方について説明します。まず、行間による見え方の違いについて説明したいと思います。</p>
+        </div>
+
+          <div class="inner">
+            <ul class="col7">
+              <li>
+                <p><h4> <行間を意識せず作った場合> </h4></p>
+                <p class="img"><img src="images/gyoukan1.png" width="370" height="224" alt=""></p>
+
+              </li>
+              <li>
+                <p><h4> <行間を意識して作った場合></h4></p>
+                <p class="img"><img src="images/gyoukan2.png" width="370" height="224" alt=""></p>
+
+              </li>
+            </ul>
+          </div>
+
+          <div class="innerS">
+            <p>上記の2つを比較すると、行間を意識すると文字がごちゃごちゃするのを避けることができ、文字が読みやすくなります。また、行間が考えられた文章だと、目に入ってくる情報量にも差があります。 次に、行間の変更の仕方について説明したいと思います。</p>
+
+            <p>行間の幅を調整するために、line-heightというプロパティを使う必要があります。記述方法として、今回は基本的なやり方を説明したいと思います。その方法は、値と単位を組み合わせてやるやり方です。下記の例のように数値に単位をつけることで行間を調整します。</p>
             <br>(例) line-height:30px
             <br>*pxは単位
-            </ol>
           </div>
-        </div>
       </section>
 
       <section id="sec04">
         <header>
           <h2><span>文字の大きさ</span></h2>
         </header>
-        <div class="inner">
-          <p>ウェブサイトの基本的なフォントサイズは16pxと言われていますが、そのウェブサイトのターゲットに合わせて適切な大きさに変えることが好ましいです。</p>
-          <p>文字の大きさを変更するには、以下のようなコードを使用します。</p>
+        <div class="innerS">
+          <p>ウェブサイトの基本的なフォントサイズは16pxと言われていますが、そのウェブサイトのターゲットに合わせて適切な大きさに変えることが好ましいです。文字の大きさを変更するには、以下のようなコードを使用します。</p>
           <pre class="prettyprint linenums">
-              <code>p{
-                    font-size: 16px;
-                    }
-              </code>
-          </pre>
+          p{
+            font-size: 16px;
+          }</pre>
         </div>
       </section>
 
@@ -192,5 +186,3 @@
 
 </body>
 </html>
-
-
