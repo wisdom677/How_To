@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="layout">
+  <meta name="viewport" content="width=device-width">
+  <title>チュートリアル１</title>
+  <link rel="stylesheet" media="all" href="css/style.css">
+  <link href="code-prettify/prettify.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="code-prettify/prettify.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+
+<!--
+	gitの使い方：
+  https://gitforwindows.org から install
+  (Windowsの人は)git CMD を開く
+	git config --global user.name "ユーザーネーム"
+	git config --global user.email メールアドレス
+	//上の二つはしてない人だけで良いです。
+  空のフォルダーに移動する。
+  git init
+	git clone https://github.com/Siro3150/How_To.git
+	git branch ブランチ名
+	git checkout ブランチ名
+	編集作業
+	git add .
+	git commit -m 'コメントを書く'
+	git push -u origin ブランチ名
+  not upstream が出た時
+  git pull origin
+  git push -u origin ブランチ名
+
+  origin = https://github.com/Siro3150/How_To.git の意味なので２回めからは,
+  省略してoriginと書くことができると思いますが、もしエラーが出た場合は,
+  ちゃんとurlを書いてください。
+
+
+	２回め以降の編集作業
+	git pull https://github.com/Siro3150/How_To.git
+		編集作業
+	git add .
+	git commit -m 'コメントを書く'
+	git push -u origin ブランチ名
+
+	テンプレートの説明：
+	(新しくページを作る時)
+	①ファイル名は小文字英語でメインコンテンツ名.htmlとすること。(seo.html) ファイル位置はとりあえずseo.htmlと同じ階層で。
+	②<meta content="">にファイル名と同じようにメインコンテンツ名を記述する。(例：seo)
+	③良い感じのを<title></title>に書く(例：SEO)
+
+	(コンテンツを追加する時)
+	④サイドバーのリストにコンテンツの名前とhrefにsection番号を新たに加える。(例：sec09)
+	⑤<div id="content"></div>内に以下のプログラムを加えてコンテンを記述。<section id="">に先ほどのリストに書いたsection番号を書く。
+
+			<section id="secXX">
+				<header>
+					<h2><span>コンテンツ名</span></h2>
+				</header>
+				<div class="innerS">
+					<p>導入や思想、そのコンテンツがどのように役に立つかなど(できれば書いて欲しい)</p>
+					<h3>サブタイトル(なくても良い)</h3>
+					<p>説明</p>
+				</div>
+			</section>
+
+	⑥画像を用いて文章を説明したい時、⑤と同様に以下のプログラムを加える。(注：画像リンクはなるべくimagaesフォルダーにまとめること)
+
+
+			<section id="secXX">
+				<header>
+					<h2><span>コンテンツ名</span></h2>
+				</header>
+					<div class="inner">
+						<div class="article">
+							<img src="画像urlを記入" width="370" height="224" alt="">
+							<p>画像の右に表示される</p>
+							<p>画像右下あたりに表示される</p>
+						</div>
+						<div class="article">
+							<img src="画像urlを記入" width="370" height="224" alt="">
+							<p>＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃＃</p>
+						</div>
+					</div>
+			</section>
+
+
+	⑦画像を横並びに置いてその下に文章を書く場合、⑤と同様に以下のプログラムをコピペする。
+
+
+			<section id="secXX">
+				<header>
+					<h2><span>コンテンツ名</span></h2>
+				</header>
+				<div class="inner">
+					<ul class="col4">
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>画像の真下に表示される文章です</p>
+						</li>
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>たくさんは書けません</p>
+						</li>
+						<li>
+							<p class="img"><img src="url" width="168" height="168" alt=""></p>
+							<p>リストは必要に応じて加えたり減らしたりしてください。</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+  ⑧ソースコードを埋め込みたい時
+
+    <pre class="prettyprint linenums">
+      <code>
+        ソースコード
+      </code>
+    </pre>
+
+もっと詳しい説明：
+・全体を大きくheader、content、footerに分かれておりcontentはさらにsectionごとに区切られている。
+・サイドナビゲーションのリンク先をsectionのidに指定することでページ内遷移をしている。
+・<div class="inner">と<div class="innerS">の違いは、innerの方が画像を含めた記事を載せるため横幅が広い。innerSの方は文章のみの説明となるので横幅が狭め
+・cssとjavascriptファイルはあまり気にしなくて良い。
+・後は自由に使いたいとこをコピペしたり、無駄なとこを消したりして使ってください。
+ -->
+
+<body id="top" onload="prettyPrint()">
+  <div id="wrapper">
+
+    <div id="sidebar">
+      <div id="sidebarWrap">
+
+        <nav id="mainnav">
+          <p id="menuWrap"><a id="menu"><span id="menuBtn"></span></a></p>
+          <div class="panel">
+            <ul>
+              <li><a href="#top">top</a></li>
+              <li><a href="#sec01">1. テキストエディタの用意</a></li>
+              <li><a href="#sec02">2. ブラウザの用意</a></li>
+              <li><a href="#sec03">リッチスニペット</a></li>
+              <li><a href="#sec04">コンテンツの属性</a></li>
+              <li><a href="#sec05">ナレッジグラフ</a></li>
+              <li><a href="#sec06">サンプル</a></li>
+            </ul>
+            <ul id="sns">
+              <li><a href="https://twitter.com/m_seminar" target="_blank"><img src="images/iconTw.png" width="20" height="20" alt="twitter"></a></li>
+              <li><a href="https://t.co/PtGWqwsb5g" target="_blank"><img src="images/iconInsta.png" width="20" height="20" alt="Instagram"></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+
+    <div id="content">
+
+      <section>
+        <header>
+          <h2><span>HTML & CSS の開発環境を用意しよう！</span></h2>
+        </header>
+        <div class="innerS">
+          <p>このページでは、自分のPCでHTMLとCSSのコードを書き、Webページ開発をする方法を紹介します。
+          一般的に、自分のPCで開発をする環境のことをローカル環境、開発する環境を用意することを環境構築と呼びます。 ローカル環境を構築することで、自分のPCさえあればいつでもどこでも（インターネットに接続していなくても！）HTMLやCSSのコードを書き、Webページ製作を進めることが可能です。
+          このページを読みながら実際に手を動かして、Webページ製作の第一歩を踏み出しましょう！</p>
+          <h4>◯ 必要なもの・知識</h4>
+          <ul>
+            <li>・PC</li>
+            <li>・HTMLおよびCSSの基礎的な知識(<a href="tutorial2.html">HTMLの基本的なタグ説明</a>)</li>
+          </ul>
+          <p>この記事はMacの方向けの内容です。Windowsをご利用の方は<a href="#">こちら</a>の記事をご利用ください。</p>
+        </div>
+      </section>
+
+      <section id="sec01">
+        <header>
+          <h2><span>1. テキストエディタの用意</span></h2>
+        </header>
+        <div class="innerS">
+          <p>
+            Webページの開発を進めるために必要なツールは、主に「テキストエディタ」と「ブラウザ」の2つだけです。まずは「テキストエディタ」から用意していきましょう。
+            テキストエディタ（エディタ）とは、コードを入力する部分のことです。HTMLやCSSに限らず、プログラミングをする上では必須のツールです。
+          </p>
+          <br>
+          <p>
+            エディタには様々な種類のものがあります。今回は無料で使用でき、初心者から現場のエンジニアまで幅広く使用されている「Visual Studio Code（VSCode）」というエディタを使用しましょう。
+            （ここからVSCodeをインストールする方法を説明します。すでに自分のPCにインストールされている方は読み飛ばしても問題ありません。）
+            まずはVSCodeの公式サイト (<a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>) にアクセスします。画面左側に表示されている「ダウンロード」のボタンをクリックし、インストールに必要なファイルをダウンロードしてください。
+          </p>
+          <img src="images/vscode0.png" alt="VSCodeの公式サイト">
+          <br>
+          <p>Finderでダウンロードしたファイルを確認します。</p>
+          <img src="images/Finder.png" alt="ダウンロード">
+          <br>
+          <p>ファイルをダブルクリックすることで、以下のようなVSCodeのアイコンが表示されます。</p>
+          <img src="images/Finder2.png" alt="ダウンロード">
+          <p>このアイコンをダブルクリックし、VSCodeを開きましょう。始めは少し時間がかかるかと思いますが、以下のようなウィンドウが表示されれば完了です</p>
+          <img src="images/vscode1.png" alt="vscodeのトップ画面">
+
+        </div>
+
+      </section>
+
+      <section id="sec02">
+        <header>
+          <h2><span>2. ブラウザの用意</span></h2>
+        </header>
+        <div class="innerS">
+          <p>
+            MacやiPhoneでは標準で「Safari」がインストールされているかと思います。これらのブラウザでも問題はありませんが、今回は「Google Chrome」というブラウザをインストールして用いましょう。
+            Chromeの公式ページ（ <a href="https://www.google.co.jp/chrome/">https://www.google.co.jp/chrome/</a>）にアクセスし、画面中央の「Chrome をダウンロード」という青いボタンをクリックしてダウンロードを開始しましょう。
+          </p>
+          <img src="images/chrome0.png" alt="Chromeのダウンロード画面">
+          <p>先ほどのVSCodeの時と同様の手順でダウンロードしたファイルを開き、インストールを完了させてください。以下のようにChromeを開くことができれば完了です。</p>
+          <img src="images/chrome1.png" alt="Chromeのトップページ">
+          <p>これでWebページを開発するために必要な「道具」は揃いました！</p>
+
+        </div>
+      </section>
+
+
+    </div>
+  </div>
+
+</body>
+</html>

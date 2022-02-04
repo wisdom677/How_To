@@ -89,7 +89,6 @@ pre{
 	width: 60%;
 	height: auto;
 	margin: auto;
-	text-align: left;
 }
 
 section h2{
@@ -123,6 +122,10 @@ section h3{
 	width: 60%;
 	margin: 0 auto;
 	padding-bottom: 80px;
+}
+
+.innerS p{
+	padding: 20px;
 }
 
 .article{
